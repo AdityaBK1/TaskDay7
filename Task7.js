@@ -60,3 +60,46 @@
         </script>
     </body>
 </html>
+
+//Print the total population of countries using reduce function
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Guvi JS Day 3</title>
+    </head>
+    <body>
+        <h1>Hello</h1>
+        <h2>This is an example for XML HTTP Request</h2>
+        <script>
+            const xhr = new XMLHttpRequest ();
+            xhr.open('GET', 'https://restcountries.com/v3.1/all');
+            xhr.onload = function() {
+                let countriesdata = JSON.parse(xhr.response);
+                let g = countriesdata.reduce(function (acc, obj) { return acc + obj.population; }, 0);  
+                console.log(g)
+            }
+            xhr.send();
+        </script>
+    </body>
+</html>
+
+//Print the country which uses US Dollars as currency.
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Guvi JS Day 3</title>
+    </head>
+    <body>
+        <h1>Hello</h1>
+        <h2>This is an example for XML HTTP Request</h2>
+        <script>
+            const xhr = new XMLHttpRequest ();
+            xhr.open('GET', 'https://restcountries.com/v3.1/all');
+            xhr.onload = function() {
+                let countriesdata = JSON.parse(xhr.response);
+                console.log(countriesdata.filter((element)=>element.currencies = "USD").map((element)=>element.country))
+            }
+            xhr.send();
+        </script>
+    </body>
+</html>
